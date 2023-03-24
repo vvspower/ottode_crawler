@@ -36,28 +36,6 @@ class OttodeSpider(scrapy.Spider):
 
     def parse_product(self, response,  **kwargs):
         manual = Manual()
-        parent_product = response.meta["parent_product"]
-        headline = response.css(
-            'h1.pdp_variation-name::text').get().replace('"', "").strip()
-        brand, model, product = self.clean_headline(headline)
-        print(f"Brand: {brand}, Model: {model}, Product: {product}")
-        thumb = response.css('a.pl_sliding-carousel__slide::attr(href)').get()
-        manual['product_parent'] = parent_product
-        manual['brand'] = brand
-        manual['product'] = product
-        manual['model'] = model
-        manual["thumb"] = thumb
-        manual["url"] = response.url
-        manual["source"] = "otto.de"
-        manual["type"] = "Bedienungsanleitung"
-        manual["product_lang"] = "de"
-        script_tag = response.css(
-            'script[type="application/ld+json"]::text').get()
-        data = json.loads(script_tag)
-        gtin13 = data.get('gtin13')
-
-        manual['eans'] = gtin13
-
         for a_tag in response.css("ul.pdp_important-information__list a"):
             link = a_tag.css("::attr(href)").get()
             text = a_tag.xpath(".//text()[normalize-space()]").extract_first()
@@ -65,43 +43,67 @@ class OttodeSpider(scrapy.Spider):
                 text = text.strip()
                 if "Bedienungsanleitung" in text:
                     manual["file_urls"] = [link]
+
+                    parent_product = response.meta["parent_product"]
+                    headline = response.css(
+                        'h1.pdp_variation-name::text').get().replace('"', "").strip()
+                    brand, model, product = self.clean_headline(
+                        headline, response)
+                    # print(
+                    #     f"Brand: {brand}, Model: {model}, Product: {product}")
+                    thumb = response.css(
+                        'a.pl_sliding-carousel__slide::attr(href)').get()
+                    manual['product_parent'] = parent_product
+                    manual['brand'] = brand
+                    manual['product'] = product
+                    manual['model'] = model
+                    manual["thumb"] = thumb
+                    manual["url"] = response.url
+                    manual["source"] = "otto.de"
+                    manual["type"] = "Bedienungsanleitung"
+                    manual["product_lang"] = "de"
+                    script_tag = response.css(
+                        'script[type="application/ld+json"]::text').get()
+                    data = json.loads(script_tag)
+                    gtin13 = data.get('gtin13')
+
+                    manual['eans'] = gtin13
+
                     yield manual
 
-    def clean_headline(self, headline):
-        if "»" in headline:
-            brand, model, product = self.case_1(headline)
-        else:
-            brand, model, product = self.case_2(headline)
-        if len(model) == 0:
-            try:
-                model = headline.split()[2].strip(",").strip(
-                    "«").strip("»").strip("(").strip(")")
-            except:
-                model = headline.split()[1].strip(",").strip(
-                    "«").strip("»").strip("(").strip(")")
+    def clean_headline(self, headline, response):
+        script_tag = response.css(
+            'script[type="application/ld+json"]::text').get()
+        data = json.loads(script_tag)
+        try:
+            brand = data['brand']['name']
+        except:
+            self.logger.error("Brand not present")
+        product = response.css(
+            'ul.nav_grimm-breadcrumb li:last-child a::text').get()
+
+        model = self.clean_model(headline, brand, product)
 
         return brand, model, product
 
-    def case_1(self, headline):
-        seperated = headline.split('»')
-        model = re.search('»(.+?)«', headline).group(1)
-        if len(seperated[0].split()) > 3:
-            brand = seperated[0].split()[0] + " " + seperated[0].split()[1]
-            product = seperated[0].split()[2] + " " + seperated[0].split()[3]
+    def clean_model(self, headline, brand, product):
+        if "»" in headline:
+            try:
+                model = re.search("»(.*?)«", headline).group(1)
+            except:
+                self.logger.error("Model did not match")
         else:
-            brand = headline.split()[0]
-            product = headline.split()[1]
-        if len(headline.split("»")[0].split()) < 2:
-            product = headline.split("»")[1]
+            model = headline.replace(brand, "").replace(product, "")
 
-        return brand.strip(",").strip("«").strip("»").strip("(").strip(")"), model.strip(",").strip("«").strip("»").strip("(").strip(")"), product.strip(",").strip("«").strip("»").strip("(").strip(")")
+        if "," in headline:
+            model = " ".join(headline.split(",")[0].split()[2:])
+            if len(model) == 0:
+                model = headline.split(",")[1]
 
-    def case_2(self, headline):
-        brand = headline.split()[0].strip(",")
-        product = headline.split()[1].strip(",")
-        model = " ".join(headline.split(",")[0].split()[2:])
-        if "+" in headline:
-            brand = headline.split()[0] + \
-                headline.split()[1] + headline.split()[2]
-            product = headline.split()[3]
-        return brand.strip(",").strip("«").strip("»").strip("(").strip(")"), model.strip(",").strip("«").strip("»").strip("(").strip(")"), product.strip(",").strip("«").strip("»").strip("(").strip(")")
+        if len(model.strip()) == 0:
+            model = headline.split()[2]
+
+        model = model.strip(",").strip(
+            "«").strip("»").strip("(").strip(")")
+
+        return model.strip()
