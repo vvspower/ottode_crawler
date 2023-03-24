@@ -1,6 +1,6 @@
-2023-03-24 01:45:15 [scrapy.utils.log] INFO: Scrapy 2.8.0 started (bot: manual_scraper_ext)
-2023-03-24 01:45:15 [scrapy.utils.log] INFO: Versions: lxml 4.9.2.0, libxml2 2.9.12, cssselect 1.2.0, parsel 1.7.0, w3lib 2.1.1, Twisted 22.10.0, Python 3.10.9 (tags/v3.10.9:1dd9be6, Dec  6 2022, 20:01:21) [MSC v.1934 64 bit (AMD64)], pyOpenSSL 23.0.0 (OpenSSL 3.0.8 7 Feb 2023), cryptography 39.0.2, Platform Windows-10-10.0.19045-SP0
-2023-03-24 01:45:15 [scrapy.crawler] INFO: Overridden settings:
+2023-03-24 12:45:17 [scrapy.utils.log] INFO: Scrapy 2.8.0 started (bot: manual_scraper_ext)
+2023-03-24 12:45:17 [scrapy.utils.log] INFO: Versions: lxml 4.9.2.0, libxml2 2.9.12, cssselect 1.2.0, parsel 1.7.0, w3lib 2.1.1, Twisted 22.10.0, Python 3.10.9 (tags/v3.10.9:1dd9be6, Dec  6 2022, 20:01:21) [MSC v.1934 64 bit (AMD64)], pyOpenSSL 23.0.0 (OpenSSL 3.0.8 7 Feb 2023), cryptography 39.0.2, Platform Windows-10-10.0.19045-SP0
+2023-03-24 12:45:17 [scrapy.crawler] INFO: Overridden settings:
 {'BOT_NAME': 'manual_scraper_ext',
  'CONCURRENT_REQUESTS': 5,
  'DOWNLOAD_DELAY': 0.3,
@@ -12,13 +12,13 @@
  'ROBOTSTXT_OBEY': True,
  'SPIDER_MODULES': ['manual_scraper_ext.spiders'],
  'TWISTED_REACTOR': 'twisted.internet.asyncioreactor.AsyncioSelectorReactor'}
-2023-03-24 01:45:15 [scrapy.extensions.telnet] INFO: Telnet Password: 783d4678825401c0
-2023-03-24 01:45:15 [scrapy.middleware] INFO: Enabled extensions:
+2023-03-24 12:45:17 [scrapy.extensions.telnet] INFO: Telnet Password: 60683f9c88b205af
+2023-03-24 12:45:17 [scrapy.middleware] INFO: Enabled extensions:
 ['scrapy.extensions.corestats.CoreStats',
  'scrapy.extensions.telnet.TelnetConsole',
  'scrapy.extensions.feedexport.FeedExporter',
  'scrapy.extensions.logstats.LogStats']
-2023-03-24 01:45:15 [scrapy.middleware] INFO: Enabled downloader middlewares:
+2023-03-24 12:45:17 [scrapy.middleware] INFO: Enabled downloader middlewares:
 ['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
  'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
  'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
@@ -31,50 +31,29 @@
  'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
  'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
  'scrapy.downloadermiddlewares.stats.DownloaderStats']
-2023-03-24 01:45:15 [scrapy.middleware] INFO: Enabled spider middlewares:
+2023-03-24 12:45:17 [scrapy.middleware] INFO: Enabled spider middlewares:
 ['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
  'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
  'scrapy.spidermiddlewares.referer.RefererMiddleware',
  'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
  'scrapy.spidermiddlewares.depth.DepthMiddleware']
-2023-03-24 01:45:15 [scrapy.middleware] INFO: Enabled item pipelines:
+2023-03-24 12:45:17 [scrapy.middleware] INFO: Enabled item pipelines:
 []
-2023-03-24 01:45:15 [scrapy.core.engine] INFO: Spider opened
-2023-03-24 01:45:15 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
-2023-03-24 01:45:15 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
-2023-03-24 01:46:15 [scrapy.extensions.logstats] INFO: Crawled 120 pages (at 120 pages/min), scraped 1 items (at 1 items/min)
-2023-03-24 01:47:15 [scrapy.extensions.logstats] INFO: Crawled 247 pages (at 127 pages/min), scraped 2 items (at 1 items/min)
-2023-03-24 01:48:15 [scrapy.extensions.logstats] INFO: Crawled 376 pages (at 129 pages/min), scraped 3 items (at 1 items/min)
-2023-03-24 01:49:15 [scrapy.extensions.logstats] INFO: Crawled 494 pages (at 118 pages/min), scraped 3 items (at 0 items/min)
-2023-03-24 01:50:15 [scrapy.extensions.logstats] INFO: Crawled 611 pages (at 117 pages/min), scraped 4 items (at 1 items/min)
-2023-03-24 01:51:15 [scrapy.extensions.logstats] INFO: Crawled 726 pages (at 115 pages/min), scraped 4 items (at 0 items/min)
-2023-03-24 01:52:15 [scrapy.extensions.logstats] INFO: Crawled 857 pages (at 131 pages/min), scraped 6 items (at 2 items/min)
-2023-03-24 01:53:15 [scrapy.extensions.logstats] INFO: Crawled 978 pages (at 121 pages/min), scraped 10 items (at 4 items/min)
-2023-03-24 01:54:15 [scrapy.extensions.logstats] INFO: Crawled 1111 pages (at 133 pages/min), scraped 12 items (at 2 items/min)
-2023-03-24 01:55:15 [scrapy.extensions.logstats] INFO: Crawled 1230 pages (at 119 pages/min), scraped 13 items (at 1 items/min)
-2023-03-24 01:56:15 [scrapy.extensions.logstats] INFO: Crawled 1362 pages (at 132 pages/min), scraped 13 items (at 0 items/min)
-2023-03-24 01:57:15 [scrapy.extensions.logstats] INFO: Crawled 1489 pages (at 127 pages/min), scraped 31 items (at 18 items/min)
-2023-03-24 01:58:15 [scrapy.extensions.logstats] INFO: Crawled 1608 pages (at 119 pages/min), scraped 32 items (at 1 items/min)
-2023-03-24 01:59:15 [scrapy.extensions.logstats] INFO: Crawled 1738 pages (at 130 pages/min), scraped 40 items (at 8 items/min)
-2023-03-24 02:00:15 [scrapy.extensions.logstats] INFO: Crawled 1851 pages (at 113 pages/min), scraped 40 items (at 0 items/min)
-2023-03-24 02:01:15 [scrapy.extensions.logstats] INFO: Crawled 1961 pages (at 110 pages/min), scraped 41 items (at 1 items/min)
-2023-03-24 02:02:15 [scrapy.extensions.logstats] INFO: Crawled 2067 pages (at 106 pages/min), scraped 42 items (at 1 items/min)
-2023-03-24 02:03:15 [scrapy.extensions.logstats] INFO: Crawled 2180 pages (at 113 pages/min), scraped 43 items (at 1 items/min)
-2023-03-24 02:04:15 [scrapy.extensions.logstats] INFO: Crawled 2279 pages (at 99 pages/min), scraped 44 items (at 1 items/min)
-2023-03-24 02:05:15 [scrapy.extensions.logstats] INFO: Crawled 2382 pages (at 103 pages/min), scraped 53 items (at 9 items/min)
-2023-03-24 02:06:15 [scrapy.extensions.logstats] INFO: Crawled 2502 pages (at 120 pages/min), scraped 53 items (at 0 items/min)
-2023-03-24 02:07:15 [scrapy.extensions.logstats] INFO: Crawled 2621 pages (at 119 pages/min), scraped 58 items (at 5 items/min)
-2023-03-24 02:08:15 [scrapy.extensions.logstats] INFO: Crawled 2754 pages (at 133 pages/min), scraped 81 items (at 23 items/min)
-2023-03-24 02:09:15 [scrapy.extensions.logstats] INFO: Crawled 2888 pages (at 134 pages/min), scraped 81 items (at 0 items/min)
-2023-03-24 02:10:15 [scrapy.extensions.logstats] INFO: Crawled 2992 pages (at 104 pages/min), scraped 81 items (at 0 items/min)
-2023-03-24 02:11:15 [scrapy.extensions.logstats] INFO: Crawled 3111 pages (at 119 pages/min), scraped 94 items (at 13 items/min)
-2023-03-24 02:12:15 [scrapy.extensions.logstats] INFO: Crawled 3233 pages (at 122 pages/min), scraped 135 items (at 41 items/min)
-2023-03-24 02:13:15 [scrapy.extensions.logstats] INFO: Crawled 3360 pages (at 127 pages/min), scraped 154 items (at 19 items/min)
-2023-03-24 02:14:15 [scrapy.extensions.logstats] INFO: Crawled 3514 pages (at 154 pages/min), scraped 159 items (at 5 items/min)
-2023-03-24 02:15:15 [scrapy.extensions.logstats] INFO: Crawled 3644 pages (at 130 pages/min), scraped 167 items (at 8 items/min)
-2023-03-24 02:16:15 [scrapy.extensions.logstats] INFO: Crawled 3757 pages (at 113 pages/min), scraped 176 items (at 9 items/min)
-2023-03-24 02:16:26 [ottode] ERROR: Model did not match
-2023-03-24 02:16:26 [scrapy.core.scraper] ERROR: Spider error processing <GET https://www.otto.de:443/p/russell-hobbs-reiskocher-19750-56-cook-home-700-w-inkl-reisloeffel-messbecher-dampfkorb-fuer-gemuese-fisch-C358318826/> (referer: https://www.otto.de/haushalt/kuechengeraete/kocher/)
+2023-03-24 12:45:17 [scrapy.core.engine] INFO: Spider opened
+2023-03-24 12:45:17 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2023-03-24 12:45:17 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2023-03-24 12:46:17 [scrapy.extensions.logstats] INFO: Crawled 133 pages (at 133 pages/min), scraped 16 items (at 16 items/min)
+2023-03-24 12:47:17 [scrapy.extensions.logstats] INFO: Crawled 253 pages (at 120 pages/min), scraped 51 items (at 35 items/min)
+2023-03-24 12:48:17 [scrapy.extensions.logstats] INFO: Crawled 367 pages (at 114 pages/min), scraped 85 items (at 34 items/min)
+2023-03-24 12:48:41 [ottode] ERROR: Model did not match
+2023-03-24 12:49:17 [scrapy.extensions.logstats] INFO: Crawled 488 pages (at 121 pages/min), scraped 122 items (at 37 items/min)
+2023-03-24 12:50:17 [scrapy.extensions.logstats] INFO: Crawled 608 pages (at 120 pages/min), scraped 151 items (at 29 items/min)
+2023-03-24 12:51:17 [scrapy.extensions.logstats] INFO: Crawled 728 pages (at 120 pages/min), scraped 158 items (at 7 items/min)
+2023-03-24 12:52:17 [scrapy.extensions.logstats] INFO: Crawled 857 pages (at 129 pages/min), scraped 185 items (at 27 items/min)
+2023-03-24 12:53:17 [scrapy.extensions.logstats] INFO: Crawled 991 pages (at 134 pages/min), scraped 248 items (at 63 items/min)
+2023-03-24 12:54:17 [scrapy.extensions.logstats] INFO: Crawled 1141 pages (at 150 pages/min), scraped 309 items (at 61 items/min)
+2023-03-24 12:54:20 [ottode] ERROR: Brand not present
+2023-03-24 12:54:20 [scrapy.core.scraper] ERROR: Spider error processing <GET https://www.otto.de:443/p/gorenje-backofen-set-pacific-backofen-set-basic-2021-mit-1-fach-teleskopauszug-aqua-clean-1349131976/#variationId=1349132548> (referer: https://www.otto.de/haushalt/kuechengeraete/dampfgarer/?einbauart=einbaufaehig)
 Traceback (most recent call last):
   File "C:\Users\vvspower\AppData\Local\Programs\Python\Python310\lib\site-packages\scrapy\utils\defer.py", line 257, in iter_errback
     yield next(it)
@@ -102,117 +81,50 @@ Traceback (most recent call last):
     for r in iterable:
   File "D:\WORK\SCRAPING WORK\otto-crawler\manual_scraper_ext\manual_scraper_ext\spiders\ottode.py", line 50, in parse_product
     brand, model, product = self.clean_headline(
-  File "D:\WORK\SCRAPING WORK\otto-crawler\manual_scraper_ext\manual_scraper_ext\spiders\ottode.py", line 82, in clean_headline
+  File "D:\WORK\SCRAPING WORK\otto-crawler\manual_scraper_ext\manual_scraper_ext\spiders\ottode.py", line 85, in clean_headline
     model = self.clean_model(headline, brand, product)
-  File "D:\WORK\SCRAPING WORK\otto-crawler\manual_scraper_ext\manual_scraper_ext\spiders\ottode.py", line 92, in clean_model
-    if len(model.split(",")) > 1:
-UnboundLocalError: local variable 'model' referenced before assignment
-2023-03-24 02:17:15 [scrapy.extensions.logstats] INFO: Crawled 3875 pages (at 118 pages/min), scraped 203 items (at 27 items/min)
-2023-03-24 02:18:15 [scrapy.extensions.logstats] INFO: Crawled 4006 pages (at 131 pages/min), scraped 223 items (at 20 items/min)
-2023-03-24 02:19:15 [scrapy.extensions.logstats] INFO: Crawled 4130 pages (at 124 pages/min), scraped 227 items (at 4 items/min)
-2023-03-24 02:20:15 [scrapy.extensions.logstats] INFO: Crawled 4263 pages (at 133 pages/min), scraped 246 items (at 19 items/min)
-2023-03-24 02:21:15 [scrapy.extensions.logstats] INFO: Crawled 4389 pages (at 126 pages/min), scraped 257 items (at 11 items/min)
-2023-03-24 02:22:15 [scrapy.extensions.logstats] INFO: Crawled 4515 pages (at 126 pages/min), scraped 265 items (at 8 items/min)
-2023-03-24 02:23:15 [scrapy.extensions.logstats] INFO: Crawled 4649 pages (at 134 pages/min), scraped 294 items (at 29 items/min)
-2023-03-24 02:24:15 [scrapy.extensions.logstats] INFO: Crawled 4767 pages (at 118 pages/min), scraped 311 items (at 17 items/min)
-2023-03-24 02:25:15 [scrapy.extensions.logstats] INFO: Crawled 4901 pages (at 134 pages/min), scraped 369 items (at 58 items/min)
-2023-03-24 02:26:15 [scrapy.extensions.logstats] INFO: Crawled 5030 pages (at 129 pages/min), scraped 400 items (at 31 items/min)
-2023-03-24 02:27:15 [scrapy.extensions.logstats] INFO: Crawled 5155 pages (at 125 pages/min), scraped 414 items (at 14 items/min)
-2023-03-24 02:28:15 [scrapy.extensions.logstats] INFO: Crawled 5286 pages (at 131 pages/min), scraped 426 items (at 12 items/min)
-2023-03-24 02:29:15 [scrapy.extensions.logstats] INFO: Crawled 5410 pages (at 124 pages/min), scraped 442 items (at 16 items/min)
-2023-03-24 02:30:15 [scrapy.extensions.logstats] INFO: Crawled 5538 pages (at 128 pages/min), scraped 445 items (at 3 items/min)
-2023-03-24 02:31:15 [scrapy.extensions.logstats] INFO: Crawled 5661 pages (at 123 pages/min), scraped 446 items (at 1 items/min)
-2023-03-24 02:32:15 [scrapy.extensions.logstats] INFO: Crawled 5763 pages (at 102 pages/min), scraped 466 items (at 20 items/min)
-2023-03-24 02:33:15 [scrapy.extensions.logstats] INFO: Crawled 5889 pages (at 126 pages/min), scraped 494 items (at 28 items/min)
-2023-03-24 02:34:15 [scrapy.extensions.logstats] INFO: Crawled 6042 pages (at 153 pages/min), scraped 495 items (at 1 items/min)
-2023-03-24 02:35:15 [scrapy.extensions.logstats] INFO: Crawled 6151 pages (at 109 pages/min), scraped 505 items (at 10 items/min)
-2023-03-24 02:35:53 [scrapy.core.scraper] ERROR: Spider error processing <GET https://www.otto.de:443/p/dj-controller-neon-dj-pad-controller-fuer-serato-471556396/#variationId=471560471> (referer: https://www.otto.de/technik/?marke=reloop)
-Traceback (most recent call last):
-  File "C:\Users\vvspower\AppData\Local\Programs\Python\Python310\lib\site-packages\scrapy\utils\defer.py", line 257, in iter_errback
-    yield next(it)
-  File "C:\Users\vvspower\AppData\Local\Programs\Python\Python310\lib\site-packages\scrapy\utils\python.py", line 312, in __next__
-    return next(self.data)
-  File "C:\Users\vvspower\AppData\Local\Programs\Python\Python310\lib\site-packages\scrapy\utils\python.py", line 312, in __next__
-    return next(self.data)
-  File "C:\Users\vvspower\AppData\Local\Programs\Python\Python310\lib\site-packages\scrapy\core\spidermw.py", line 104, in process_sync
-    for r in iterable:
-  File "C:\Users\vvspower\AppData\Local\Programs\Python\Python310\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 28, in <genexpr>
-    return (r for r in result or () if self._filter(r, spider))
-  File "C:\Users\vvspower\AppData\Local\Programs\Python\Python310\lib\site-packages\scrapy\core\spidermw.py", line 104, in process_sync
-    for r in iterable:
-  File "C:\Users\vvspower\AppData\Local\Programs\Python\Python310\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 353, in <genexpr>
-    return (self._set_referer(r, response) for r in result or ())
-  File "C:\Users\vvspower\AppData\Local\Programs\Python\Python310\lib\site-packages\scrapy\core\spidermw.py", line 104, in process_sync
-    for r in iterable:
-  File "C:\Users\vvspower\AppData\Local\Programs\Python\Python310\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 27, in <genexpr>
-    return (r for r in result or () if self._filter(r, spider))
-  File "C:\Users\vvspower\AppData\Local\Programs\Python\Python310\lib\site-packages\scrapy\core\spidermw.py", line 104, in process_sync
-    for r in iterable:
-  File "C:\Users\vvspower\AppData\Local\Programs\Python\Python310\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 31, in <genexpr>
-    return (r for r in result or () if self._filter(r, response, spider))
-  File "C:\Users\vvspower\AppData\Local\Programs\Python\Python310\lib\site-packages\scrapy\core\spidermw.py", line 104, in process_sync
-    for r in iterable:
-  File "D:\WORK\SCRAPING WORK\otto-crawler\manual_scraper_ext\manual_scraper_ext\spiders\ottode.py", line 50, in parse_product
-    brand, model, product = self.clean_headline(
-  File "D:\WORK\SCRAPING WORK\otto-crawler\manual_scraper_ext\manual_scraper_ext\spiders\ottode.py", line 78, in clean_headline
-    brand = data['brand']['name']
-KeyError: 'brand'
-2023-03-24 02:36:15 [scrapy.extensions.logstats] INFO: Crawled 6272 pages (at 121 pages/min), scraped 511 items (at 6 items/min)
-2023-03-24 02:37:15 [scrapy.extensions.logstats] INFO: Crawled 6412 pages (at 140 pages/min), scraped 541 items (at 30 items/min)
-2023-03-24 02:38:15 [scrapy.extensions.logstats] INFO: Crawled 6529 pages (at 117 pages/min), scraped 553 items (at 12 items/min)
-2023-03-24 02:39:15 [scrapy.extensions.logstats] INFO: Crawled 6641 pages (at 112 pages/min), scraped 558 items (at 5 items/min)
-2023-03-24 02:40:15 [scrapy.extensions.logstats] INFO: Crawled 6782 pages (at 141 pages/min), scraped 558 items (at 0 items/min)
-2023-03-24 02:41:15 [scrapy.extensions.logstats] INFO: Crawled 6907 pages (at 125 pages/min), scraped 569 items (at 11 items/min)
-2023-03-24 02:42:15 [scrapy.extensions.logstats] INFO: Crawled 7019 pages (at 112 pages/min), scraped 574 items (at 5 items/min)
-2023-03-24 02:43:15 [scrapy.extensions.logstats] INFO: Crawled 7170 pages (at 151 pages/min), scraped 575 items (at 1 items/min)
-2023-03-24 02:44:15 [scrapy.extensions.logstats] INFO: Crawled 7278 pages (at 108 pages/min), scraped 599 items (at 24 items/min)
-2023-03-24 02:44:27 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://www.otto.de:443/p/foscam-fi9938b-ueberwachungskamera-aussenbereich-innenbereich-wetterfest-nachtsicht-bis-zu-60-m-4fach-optischer-zoom-schwenk-und-neigungsfunktion-S0E2V0QM/>: HTTP status code is not handled or not allowed
-2023-03-24 02:45:15 [scrapy.extensions.logstats] INFO: Crawled 7397 pages (at 119 pages/min), scraped 615 items (at 16 items/min)
-2023-03-24 02:46:15 [scrapy.extensions.logstats] INFO: Crawled 7538 pages (at 141 pages/min), scraped 630 items (at 15 items/min)
-2023-03-24 02:47:15 [scrapy.extensions.logstats] INFO: Crawled 7650 pages (at 112 pages/min), scraped 647 items (at 17 items/min)
-2023-03-24 02:48:15 [scrapy.extensions.logstats] INFO: Crawled 7794 pages (at 144 pages/min), scraped 649 items (at 2 items/min)
-2023-03-24 02:49:15 [scrapy.extensions.logstats] INFO: Crawled 7917 pages (at 123 pages/min), scraped 650 items (at 1 items/min)
-2023-03-24 02:50:15 [scrapy.extensions.logstats] INFO: Crawled 8070 pages (at 153 pages/min), scraped 650 items (at 0 items/min)
-2023-03-24 02:51:15 [scrapy.extensions.logstats] INFO: Crawled 8211 pages (at 141 pages/min), scraped 665 items (at 15 items/min)
-2023-03-24 02:52:15 [scrapy.extensions.logstats] INFO: Crawled 8352 pages (at 141 pages/min), scraped 670 items (at 5 items/min)
-2023-03-24 02:53:15 [scrapy.extensions.logstats] INFO: Crawled 8481 pages (at 129 pages/min), scraped 673 items (at 3 items/min)
-2023-03-24 02:54:15 [scrapy.extensions.logstats] INFO: Crawled 8616 pages (at 135 pages/min), scraped 681 items (at 8 items/min)
-2023-03-24 02:55:15 [scrapy.extensions.logstats] INFO: Crawled 8769 pages (at 153 pages/min), scraped 688 items (at 7 items/min)
-2023-03-24 02:56:15 [scrapy.extensions.logstats] INFO: Crawled 8918 pages (at 149 pages/min), scraped 692 items (at 4 items/min)
-2023-03-24 02:57:10 [scrapy.core.scraper] ERROR: Spider error processing <GET https://www.otto.de:443/p/schneider-schirme-ampelschirm-rhodos-twist-lxb-300x300-cm-mit-schutzhuelle-ohne-wegeplatten-C1209412525/> (referer: https://www.otto.de/baumarkt/?marke=schneider-schirme)
-Traceback (most recent call last):
-  File "C:\Users\vvspower\AppData\Local\Programs\Python\Python310\lib\site-packages\scrapy\utils\defer.py", line 257, in iter_errback
-    yield next(it)
-  File "C:\Users\vvspower\AppData\Local\Programs\Python\Python310\lib\site-packages\scrapy\utils\python.py", line 312, in __next__
-    return next(self.data)
-  File "C:\Users\vvspower\AppData\Local\Programs\Python\Python310\lib\site-packages\scrapy\utils\python.py", line 312, in __next__
-    return next(self.data)
-  File "C:\Users\vvspower\AppData\Local\Programs\Python\Python310\lib\site-packages\scrapy\core\spidermw.py", line 104, in process_sync
-    for r in iterable:
-  File "C:\Users\vvspower\AppData\Local\Programs\Python\Python310\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 28, in <genexpr>
-    return (r for r in result or () if self._filter(r, spider))
-  File "C:\Users\vvspower\AppData\Local\Programs\Python\Python310\lib\site-packages\scrapy\core\spidermw.py", line 104, in process_sync
-    for r in iterable:
-  File "C:\Users\vvspower\AppData\Local\Programs\Python\Python310\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 353, in <genexpr>
-    return (self._set_referer(r, response) for r in result or ())
-  File "C:\Users\vvspower\AppData\Local\Programs\Python\Python310\lib\site-packages\scrapy\core\spidermw.py", line 104, in process_sync
-    for r in iterable:
-  File "C:\Users\vvspower\AppData\Local\Programs\Python\Python310\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 27, in <genexpr>
-    return (r for r in result or () if self._filter(r, spider))
-  File "C:\Users\vvspower\AppData\Local\Programs\Python\Python310\lib\site-packages\scrapy\core\spidermw.py", line 104, in process_sync
-    for r in iterable:
-  File "C:\Users\vvspower\AppData\Local\Programs\Python\Python310\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 31, in <genexpr>
-    return (r for r in result or () if self._filter(r, response, spider))
-  File "C:\Users\vvspower\AppData\Local\Programs\Python\Python310\lib\site-packages\scrapy\core\spidermw.py", line 104, in process_sync
-    for r in iterable:
-  File "D:\WORK\SCRAPING WORK\otto-crawler\manual_scraper_ext\manual_scraper_ext\spiders\ottode.py", line 50, in parse_product
-    brand, model, product = self.clean_headline(
-  File "D:\WORK\SCRAPING WORK\otto-crawler\manual_scraper_ext\manual_scraper_ext\spiders\ottode.py", line 78, in clean_headline
-    brand = data['brand']['name']
-KeyError: 'brand'
-2023-03-24 02:57:15 [scrapy.extensions.logstats] INFO: Crawled 9051 pages (at 133 pages/min), scraped 710 items (at 18 items/min)
-2023-03-24 02:58:15 [scrapy.extensions.logstats] INFO: Crawled 9183 pages (at 132 pages/min), scraped 740 items (at 30 items/min)
-2023-03-24 02:59:15 [scrapy.extensions.logstats] INFO: Crawled 9322 pages (at 139 pages/min), scraped 752 items (at 12 items/min)
-2023-03-24 03:00:00 [scrapy.crawler] INFO: Received SIGINT, shutting down gracefully. Send again to force 
-2023-03-24 03:00:00 [scrapy.core.engine] INFO: Closing spider (shutdown)
-2023-03-24 03:00:00 [scrapy.crawler] INFO: Received SIGINT twice, forcing unclean shutdown
+UnboundLocalError: local variable 'brand' referenced before assignment
+2023-03-24 12:55:17 [scrapy.extensions.logstats] INFO: Crawled 1290 pages (at 149 pages/min), scraped 332 items (at 23 items/min)
+2023-03-24 12:56:17 [scrapy.extensions.logstats] INFO: Crawled 1439 pages (at 149 pages/min), scraped 336 items (at 4 items/min)
+2023-03-24 12:57:17 [scrapy.extensions.logstats] INFO: Crawled 1590 pages (at 151 pages/min), scraped 347 items (at 11 items/min)
+2023-03-24 12:58:17 [scrapy.extensions.logstats] INFO: Crawled 1716 pages (at 126 pages/min), scraped 347 items (at 0 items/min)
+2023-03-24 12:59:17 [scrapy.extensions.logstats] INFO: Crawled 1826 pages (at 110 pages/min), scraped 348 items (at 1 items/min)
+2023-03-24 13:00:17 [scrapy.extensions.logstats] INFO: Crawled 1950 pages (at 124 pages/min), scraped 348 items (at 0 items/min)
+2023-03-24 13:01:17 [scrapy.extensions.logstats] INFO: Crawled 2069 pages (at 119 pages/min), scraped 349 items (at 1 items/min)
+2023-03-24 13:02:17 [scrapy.extensions.logstats] INFO: Crawled 2192 pages (at 123 pages/min), scraped 349 items (at 0 items/min)
+2023-03-24 13:03:17 [scrapy.extensions.logstats] INFO: Crawled 2317 pages (at 125 pages/min), scraped 349 items (at 0 items/min)
+2023-03-24 13:04:17 [scrapy.extensions.logstats] INFO: Crawled 2451 pages (at 134 pages/min), scraped 350 items (at 1 items/min)
+2023-03-24 13:05:17 [scrapy.extensions.logstats] INFO: Crawled 2576 pages (at 125 pages/min), scraped 351 items (at 1 items/min)
+2023-03-24 13:06:17 [scrapy.extensions.logstats] INFO: Crawled 2707 pages (at 131 pages/min), scraped 355 items (at 4 items/min)
+2023-03-24 13:07:17 [scrapy.extensions.logstats] INFO: Crawled 2835 pages (at 128 pages/min), scraped 355 items (at 0 items/min)
+2023-03-24 13:08:17 [scrapy.extensions.logstats] INFO: Crawled 2960 pages (at 125 pages/min), scraped 357 items (at 2 items/min)
+2023-03-24 13:09:17 [scrapy.extensions.logstats] INFO: Crawled 3087 pages (at 127 pages/min), scraped 357 items (at 0 items/min)
+2023-03-24 13:10:17 [scrapy.extensions.logstats] INFO: Crawled 3224 pages (at 137 pages/min), scraped 357 items (at 0 items/min)
+2023-03-24 13:11:17 [scrapy.extensions.logstats] INFO: Crawled 3345 pages (at 121 pages/min), scraped 371 items (at 14 items/min)
+2023-03-24 13:12:17 [scrapy.extensions.logstats] INFO: Crawled 3500 pages (at 155 pages/min), scraped 372 items (at 1 items/min)
+2023-03-24 13:13:17 [scrapy.extensions.logstats] INFO: Crawled 3637 pages (at 137 pages/min), scraped 395 items (at 23 items/min)
+2023-03-24 13:14:17 [scrapy.extensions.logstats] INFO: Crawled 3769 pages (at 132 pages/min), scraped 397 items (at 2 items/min)
+2023-03-24 13:15:17 [scrapy.extensions.logstats] INFO: Crawled 3905 pages (at 136 pages/min), scraped 413 items (at 16 items/min)
+2023-03-24 13:16:17 [scrapy.extensions.logstats] INFO: Crawled 4046 pages (at 141 pages/min), scraped 419 items (at 6 items/min)
+2023-03-24 13:17:17 [scrapy.extensions.logstats] INFO: Crawled 4159 pages (at 113 pages/min), scraped 419 items (at 0 items/min)
+2023-03-24 13:18:17 [scrapy.extensions.logstats] INFO: Crawled 4287 pages (at 128 pages/min), scraped 419 items (at 0 items/min)
+2023-03-24 13:19:17 [scrapy.extensions.logstats] INFO: Crawled 4427 pages (at 140 pages/min), scraped 420 items (at 1 items/min)
+2023-03-24 13:20:17 [scrapy.extensions.logstats] INFO: Crawled 4544 pages (at 117 pages/min), scraped 422 items (at 2 items/min)
+2023-03-24 13:21:17 [scrapy.extensions.logstats] INFO: Crawled 4655 pages (at 111 pages/min), scraped 423 items (at 1 items/min)
+2023-03-24 13:22:17 [scrapy.extensions.logstats] INFO: Crawled 4762 pages (at 107 pages/min), scraped 423 items (at 0 items/min)
+2023-03-24 13:23:17 [scrapy.extensions.logstats] INFO: Crawled 4911 pages (at 149 pages/min), scraped 435 items (at 12 items/min)
+2023-03-24 13:24:17 [scrapy.extensions.logstats] INFO: Crawled 5027 pages (at 116 pages/min), scraped 450 items (at 15 items/min)
+2023-03-24 13:25:17 [scrapy.extensions.logstats] INFO: Crawled 5140 pages (at 113 pages/min), scraped 450 items (at 0 items/min)
+2023-03-24 13:26:17 [scrapy.extensions.logstats] INFO: Crawled 5267 pages (at 127 pages/min), scraped 456 items (at 6 items/min)
+2023-03-24 13:27:17 [scrapy.extensions.logstats] INFO: Crawled 5413 pages (at 146 pages/min), scraped 463 items (at 7 items/min)
+2023-03-24 13:28:17 [scrapy.extensions.logstats] INFO: Crawled 5530 pages (at 117 pages/min), scraped 463 items (at 0 items/min)
+2023-03-24 13:29:17 [scrapy.extensions.logstats] INFO: Crawled 5644 pages (at 114 pages/min), scraped 463 items (at 0 items/min)
+2023-03-24 13:30:17 [scrapy.extensions.logstats] INFO: Crawled 5766 pages (at 122 pages/min), scraped 463 items (at 0 items/min)
+2023-03-24 13:31:17 [scrapy.extensions.logstats] INFO: Crawled 5878 pages (at 112 pages/min), scraped 463 items (at 0 items/min)
+2023-03-24 13:32:17 [scrapy.extensions.logstats] INFO: Crawled 5990 pages (at 112 pages/min), scraped 467 items (at 4 items/min)
+2023-03-24 13:33:17 [scrapy.extensions.logstats] INFO: Crawled 6130 pages (at 140 pages/min), scraped 479 items (at 12 items/min)
+2023-03-24 13:34:17 [scrapy.extensions.logstats] INFO: Crawled 6280 pages (at 150 pages/min), scraped 485 items (at 6 items/min)
+2023-03-24 13:35:17 [scrapy.extensions.logstats] INFO: Crawled 6414 pages (at 134 pages/min), scraped 488 items (at 3 items/min)
+2023-03-24 13:36:14 [scrapy.crawler] INFO: Received SIGINT, shutting down gracefully. Send again to force 
+2023-03-24 13:36:14 [scrapy.core.engine] INFO: Closing spider (shutdown)
+2023-03-24 13:36:14 [scrapy.crawler] INFO: Received SIGINT twice, forcing unclean shutdown

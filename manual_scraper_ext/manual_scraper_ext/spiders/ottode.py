@@ -72,6 +72,7 @@ class OttodeSpider(scrapy.Spider):
                     yield manual
 
     def clean_headline(self, headline, response):
+        brand = ''
         script_tag = response.css(
             'script[type="application/ld+json"]::text').get()
         data = json.loads(script_tag)
@@ -97,7 +98,7 @@ class OttodeSpider(scrapy.Spider):
 
         if "," in headline:
             model = " ".join(headline.split(",")[0].split()[2:])
-            if len(model) == 0:
+            if len(model) <= 1:
                 model = headline.split(",")[1]
 
         if len(model.strip()) == 0:
