@@ -44,15 +44,17 @@ class OttodeSpider(scrapy.Spider):
                 if "Bedienungsanleitung" in text:
                     manual["file_urls"] = [link]
 
-                    parent_product = response.meta["parent_product"]
                     headline = response.css(
                         'h1.pdp_variation-name::text').get().replace('"', "").strip()
                     brand, model, product = self.clean_headline(
                         headline, response)
-                    # print(
-                    #     f"Brand: {brand}, Model: {model}, Product: {product}")
+                    print(
+                        f"Brand: {brand}, Model: {model}, Product: {product}")
                     thumb = response.css(
                         'a.pl_sliding-carousel__slide::attr(href)').get()
+                    #  removes product from product_parent
+                    parent_product = response.meta["parent_product"].lower().replace(
+                        product.lower(), "").capitalize().strip()
                     manual['product_parent'] = parent_product
                     manual['brand'] = brand
                     manual['product'] = product
@@ -79,6 +81,7 @@ class OttodeSpider(scrapy.Spider):
         try:
             brand = data['brand']['name']
         except:
+            brand = headline.split()[0]
             self.logger.error("Brand not present")
         product = response.css(
             'ul.nav_grimm-breadcrumb li:last-child a::text').get()
@@ -88,23 +91,39 @@ class OttodeSpider(scrapy.Spider):
         return brand, model, product
 
     def clean_model(self, headline, brand, product):
+        model = ""
         if "»" in headline:
             try:
-                model = re.search("»(.*?)«", headline).group(1)
+                model = re.search(
+                    "(?:»(.*?)«|»(.*?)»|«(.*?)«)", headline).group(1)
             except:
-                self.logger.error("Model did not match")
-        else:
-            model = headline.replace(brand, "").replace(product, "")
-
-        if "," in headline:
+                self.logger.error("Did not match")
+            print(model)
+        elif "," in headline:
             model = " ".join(headline.split(",")[0].split()[2:])
             if len(model) <= 1:
                 model = headline.split(",")[1]
 
-        if len(model.strip()) == 0:
-            model = headline.split()[2]
+        try:
+            if "»" in model:
+                model = " ".join(model[model.index("»") + 1:].split())
+            if "«" in model:
+                model = " ".join(model[:model.index("«")].split())
+        except:
+            self.logger.error("Model empty")
 
-        model = model.strip(",").strip(
-            "«").strip("»").strip("(").strip(")")
+        model = model.replace(",", "").replace("«", "").replace(
+            "»", "").replace("(", "").replace(")", "")
+
+        model = model.replace(brand, "").replace(product, "")
+
+        if len(model.strip()) == 0:
+            try:
+                model = " ".join(headline.split()[2:])
+                #  checks if model still empty then uses the product name
+                if len(model.strip()) == 0:
+                    model = " ".join(headline.split()[1:])
+            except:
+                self.logger.error("Not found")
 
         return model.strip()
