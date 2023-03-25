@@ -115,7 +115,10 @@ class OttodeSpider(scrapy.Spider):
         model = model.replace(",", "").replace("«", "").replace(
             "»", "").replace("(", "").replace(")", "")
 
-        model = model.replace(brand, "").replace(product, "")
+        try:
+            model = model.replace(brand, "").replace(product, "")
+        except:
+            self.logger.error("model is empty")
 
         if len(model.strip()) == 0:
             try:
