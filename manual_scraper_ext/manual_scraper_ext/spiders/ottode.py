@@ -17,7 +17,6 @@ class OttodeSpider(scrapy.Spider):
     def parse(self, response, **kwargs):
         for link in response.css('a.nav_navi-elem::attr(href)').getall():
             if "/sale/" not in link and "/inspiration/" not in link:
-                # print(link)
                 yield response.follow(response.urljoin(link),
                                       callback=self.parse_parent)
 
@@ -44,9 +43,6 @@ class OttodeSpider(scrapy.Spider):
                         'h1.pdp_variation-name::text').get().replace('"', "").strip()
                     brand, model, product = self.clean_headline(
                         headline, response)
-                    model2 = self.optimize_model(model)
-                    print(
-                        f"Brand: {brand}, Model: {model}, Product: {product}")
                     thumb = response.css(
                         'a.pl_sliding-carousel__slide::attr(href)').get()
                     #  removes product from product_parent
@@ -96,7 +92,6 @@ class OttodeSpider(scrapy.Spider):
                     "(?:»(.*?)«|»(.*?)»|«(.*?)«)", headline).group(1)
             except:
                 self.logger.error("Did not match")
-            print(model)
         elif "," in headline:
             model = " ".join(headline.split(",")[0].split()[2:])
             if len(model) <= 1:
