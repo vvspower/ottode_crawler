@@ -24,15 +24,11 @@ class OttodeSpider(scrapy.Spider):
     def parse_parent(self, response, **kwargs):
         for a_tag in response.css('li.nav_local-link a.ts-link'):
             href = a_tag.css('::attr(href)').get()
-            parent_product = a_tag.css('::text').get()
-            yield response.follow(href, callback=self.parse_product_page, meta={
-                'parent_product': parent_product})
+            yield response.follow(href, callback=self.parse_product_page)
 
     def parse_product_page(self, response, **kwargs):
-        parent_product = response.meta["parent_product"]
         for link in response.css('a.find_tile__productLink::attr(href)').getall():
-            yield response.follow(link, callback=self.parse_product, meta={
-                'parent_product': parent_product})
+            yield response.follow(link, callback=self.parse_product)
 
     def parse_product(self, response,  **kwargs):
         manual = Manual()
@@ -48,17 +44,19 @@ class OttodeSpider(scrapy.Spider):
                         'h1.pdp_variation-name::text').get().replace('"', "").strip()
                     brand, model, product = self.clean_headline(
                         headline, response)
+                    model2 = self.optimize_model(model)
                     print(
                         f"Brand: {brand}, Model: {model}, Product: {product}")
                     thumb = response.css(
                         'a.pl_sliding-carousel__slide::attr(href)').get()
                     #  removes product from product_parent
-                    parent_product = response.meta["parent_product"].lower().replace(
-                        product.lower(), "").capitalize().strip()
+                    parent_product = response.css(
+                        'ul.nav_grimm-breadcrumb li:nth-last-child(2) a::text').get()
                     manual['product_parent'] = parent_product
                     manual['brand'] = brand
                     manual['product'] = product
                     manual['model'] = model
+                    manual['model_2'] = self.optimize_model(model)
                     manual["thumb"] = thumb
                     manual["url"] = response.url
                     manual["source"] = "otto.de"
@@ -129,4 +127,12 @@ class OttodeSpider(scrapy.Spider):
             except:
                 self.logger.error("Not found")
 
-        return model.strip()
+        return model.replace("®", "").strip()
+
+    def optimize_model(self, model):
+        # checks if string contains number, likely to be a model number
+        words = model.split()
+        for word in words:
+            if any(char.isdigit() for char in word):
+                return word
+        return ""
